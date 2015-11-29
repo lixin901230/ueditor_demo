@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand" />
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge" /> -->
+	<title>ueditor demo2</title>
+	
+	<style type="text/css">
+		.ueditor_demo {width: 60%; height: 200px;}
+	</style>
+	<!-- 配置文件 -->
+	<script type="text/javascript" src="../ueditor/ueditor1_4_3/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="../ueditor/ueditor1_4_3/ueditor.all.js"></script>
+	<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+	<div>
+		<!-- 方式一： -->
+		<script id="container1" name="content1" type="text/plain">通过script元素初始化，这里写你的初始化内容</script>
+	    <script type="text/javascript">
+	    	//实例化编辑器
+	    	//var ue1 = UE.getEditor("container1");
+	    </script>
+	    
+		<!-- 方式二： -->
+		<!-- textarea style给定宽度可以影响编辑器的最终宽度-->
+	    <textarea id="container2" name="content2" class="ueditor_demo" rows="20" cols="10">通过textarea元素初始化</textarea>
+	    <div class="section">
+            <h4>语言切换</h4>
+            <div class="details">
+                <input type="button" value="zh-cn" onclick="setLanguage(this)">
+                <input type="button" value="en" onclick="setLanguage(this)">
+            </div>
+        </div>
+        <div class="section">
+            <h4>常用API</h4>
+            <div id="allbtn" class="details">
+                <div id="btns">
+                    <div>
+                        <button onclick="getAllHtml()">获得整个html的内容</button>
+                        <button onclick="getContent()">获得内容</button>
+                        <button onclick="setContent()">写入内容</button>
+                        <button onclick="setContent(true)">追加内容</button>
+                        <button onclick="getContentTxt()">获得纯文本</button>
+                        <button onclick="getPlainTxt()">获得带格式的纯文本</button>
+                        <button onclick="hasContent()">判断是否有内容</button>
+                        <button onclick="setFocus()">使编辑器获得焦点</button>
+                    </div>
+                    <div>
+                        <button onclick="getText()">获得当前选中的文本</button>
+                        <button onclick="insertHtml()">插入给定的内容</button>
+                        <button id="enable" onclick="setEnabled()">可以编辑</button>
+                        <button onclick="setDisabled()">不可编辑</button>
+                        <button onclick="UE.getEditor('editor').setHide()">隐藏编辑器</button>
+                        <button onclick="UE.getEditor('editor').setShow()">显示编辑器</button>
+                        <button onclick="UE.getEditor('editor').setHeight(300)">设置编辑器的高度为300</button>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" onclick="createEditor()">创建编辑器</button>
+                    <button type="button" onclick="deleteEditor()">删除编辑器</button>
+                    <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>
+                    <button onmousedown="setblur(event)">编辑器失去焦点</button>
+                    <button onclick="getLocalData()">获取草稿箱内容</button>
+                    <button onclick="clearLocalData()">清空草稿箱</button>
+                </div>
+            </div>
+        </div>
+	    
+	    <!-- 实例化编辑器 -->
+	    <script type="text/javascript">
+	    	var ue2 = UE.getEditor("container2");
+	    </script>
+    </div>
+</body>
+</html>
