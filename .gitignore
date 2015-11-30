@@ -1,0 +1,7 @@
+/.settings/
+/.externalToolBuilders/
+/target/
+/WebContent/WEB-INF/classes/
+/WebContent/incoming/editor/upload/file/
+/WebContent/incoming/editor/upload/image/
+/WebContent/incoming/editor/upload/video/
